@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Coin
+  - DeadTile
+  - Enemy
+  - CanExplode
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -11,8 +16,8 @@ TagManager:
   - Wall
   - Water
   - UI
-  - 
-  - 
+  - CanExplode
+  - Player
   - 
   - 
   - 
