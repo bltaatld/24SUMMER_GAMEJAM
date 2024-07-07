@@ -17,7 +17,16 @@ public class HitboxBehavior : MonoBehaviour
         if (collision.CompareTag("DeadTile"))
         {
             Debug.Log("Player Dead");
-            CurrentSceneManager.instance.ReloadScene();
+
+            // Find 'StageRestart' Object and Active
+            GameObject parentObject = GameObject.Find("UI_InGameMenu");
+
+            Transform parentTransform = parentObject.transform;
+            Transform childTransform = parentTransform.Find("StageRestart");
+
+            childTransform.gameObject.SetActive(true);
+
+            Time.timeScale = 0f; // Pause Time when UI Active
         }
     }
 }

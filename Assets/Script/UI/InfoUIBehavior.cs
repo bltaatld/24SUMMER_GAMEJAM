@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class InfoUIBehavior : MonoBehaviour
+{
+    public TextMeshProUGUI coinText;
+    public GameObject sceneManager;
+
+    private void Start()
+    {
+        sceneManager = GameObject.Find("GameManager");
+    }
+
+    private void Update()
+    {
+        coinText.text = ScoreManager.instance.clearCoin.ToString();
+    }
+
+    public void GameStart()
+    {
+        sceneManager.GetComponent<CurrentSceneManager>().loadNamedScene("GameScene");
+    }
+}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class ScoreManager : MonoBehaviour
 
     [Header("Values")]
     public int currentCoin;
+    public int clearCoin;
     public int savedCurrentStage;
 
     private void Awake()
@@ -23,8 +25,30 @@ public class ScoreManager : MonoBehaviour
         }
     } //Get instance & Don't Destory On Load
 
+    private void Start()
+    {
+        SaveManager.instance.LoadData(); // On Game Start Load Saved Data
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SaveManager.instance.SaveData(clearCoin, savedCurrentStage); // Quit or Return to Menu, Save Player Data
+        }
+    }
+
+    public void OnApplicationQuit()
+    {
+        SaveManager.instance.SaveData(clearCoin, savedCurrentStage); // Quit or Return to Menu, Save Player Data
+    }
+
     public void ResetValue()
     {
         currentCoin = 0;
+    }
+
+    public void SaveClearValue() // When Game Clear, Update Save Data 
+    {
+        clearCoin += currentCoin;
     }
 }
