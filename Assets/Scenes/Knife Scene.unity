@@ -448,13 +448,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033328051}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1419964, y: 1.4750991, z: -2.2321517}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1209142241}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1108637435
 GameObject:
@@ -602,8 +602,9 @@ GameObject:
   - component: {fileID: 1209142241}
   - component: {fileID: 1209142240}
   - component: {fileID: 1209142242}
+  - component: {fileID: 1209142243}
   m_Layer: 0
-  m_Name: LockRange
+  m_Name: Hostage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +673,8 @@ Transform:
   m_LocalPosition: {x: 0.02, y: 2.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1033328052}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -688,17 +690,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b1c3803f299114a8fff830d1ff7a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LockHolder: {fileID: 1033328051}
-  LockPrefab: {fileID: 7728205274996565514, guid: d03249d0df46f8946a78e88adaeca6ee, type: 3}
-  LockObjectList: []
-  LockList: []
+  failCount: 3
+  lockHolder: {fileID: 1033328051}
+  lockPrefab: {fileID: 7728205274996565514, guid: d03249d0df46f8946a78e88adaeca6ee, type: 3}
+  lockObjectList: []
+  orbitingObjects: []
   numberOfLocks: 6
-  radius: 0.5
-  direction: {x: 1, y: 0}
-  distance: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
+  orbitSpeed: 30
+--- !u!58 &1209142243
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209142239}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &1430651782
 GameObject:
   m_ObjectHideFlags: 0

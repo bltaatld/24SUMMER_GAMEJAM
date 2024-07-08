@@ -17,7 +17,6 @@ public class KunaiBehaviour : MonoBehaviour
     [SerializeField] List<GameObject> KunaiViewList;
     [SerializeField] List<Kunai> KunaiList;
 
-
     #region PrivateValue
     private LockBehaviour lockBehaviour;
     private int index = 0;
@@ -25,6 +24,7 @@ public class KunaiBehaviour : MonoBehaviour
     private bool isOverUse;
     private bool isFade = true;
     #endregion
+
     // Update is called once per frame
     private void Awake()
     {
@@ -77,7 +77,7 @@ public class KunaiBehaviour : MonoBehaviour
         else if (!isOverUse)
         {
             isOverUse = true;
-            Debug.Log("GameOver");
+            Debug.Log("GameOver"); // No more Knife GameOver
         }
     }
     private void KunaiView()

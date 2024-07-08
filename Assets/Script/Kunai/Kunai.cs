@@ -78,5 +78,4 @@ public class Kunai : MonoBehaviour
         spriteRenderer.color = startColor;
         Debug.Log("Knife Hide");
     }
-
 }
