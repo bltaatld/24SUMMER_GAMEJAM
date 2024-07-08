@@ -65,7 +65,7 @@ AnimationClip:
     - time: 0.26666668
       value: {fileID: 782692529, guid: f057c75c392e3034b9936451842d5099, type: 3}
     attribute: m_Sprite
-    path: Square
+    path: GlowEffect
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -83,7 +83,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 3394203039
+      path: 95514570
       attribute: 0
       script: {fileID: 0}
       typeID: 212

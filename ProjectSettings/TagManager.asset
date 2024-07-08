@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - CanExplode
   - Wall
+  - ShootEnemyRange
   layers:
   - Default
   - TransparentFX

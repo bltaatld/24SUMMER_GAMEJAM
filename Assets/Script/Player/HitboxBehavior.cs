@@ -6,6 +6,7 @@ public class HitboxBehavior : MonoBehaviour
 {
     [Header("Components")]
     public GameObject hitboxTarget;
+    public GameObject aimTarget;
     public Animator animator;
 
     [Header("Value")]
@@ -47,6 +48,19 @@ public class HitboxBehavior : MonoBehaviour
             animator.SetTrigger("IsDead");
 
             hitboxTarget.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
+        if (collision.CompareTag("ShootEnemyRange"))
+        {
+            aimTarget.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ShootEnemyRange"))
+        {
+            aimTarget.SetActive(false);
         }
     }
 

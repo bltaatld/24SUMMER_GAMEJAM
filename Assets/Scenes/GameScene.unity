@@ -435,6 +435,7 @@ MonoBehaviour:
   stages:
   - {fileID: 6673626745075677466, guid: ea694a6664dbf3e49afbe137561c2813, type: 3}
   - {fileID: 6673626745075677466, guid: fc410e4b26f4dd2469fdea818f3bc063, type: 3}
+  - {fileID: 6673626745075677466, guid: 662d8c4faad3fa5448a22482e2f8b370, type: 3}
   - {fileID: 6673626745075677466, guid: 1ccf3bc59a4b84b408e5a6fb4ee80666, type: 3}
 --- !u!1 &632145703
 GameObject:

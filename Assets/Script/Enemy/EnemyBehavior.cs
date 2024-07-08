@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public Animator animator;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            animator.SetTrigger("IsDead");
         }
+    }
+
+    public void DeadAction()
+    {
+        Destroy(gameObject);
     }
 }
