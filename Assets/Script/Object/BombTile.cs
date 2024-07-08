@@ -9,13 +9,15 @@ public class BombTile : MonoBehaviour
     public float currentTime;
     public float detectionRadius = 5.0f;
     public bool isTouched;
+    public bool isInBombRange;
 
     [Header("Components")]
     public LayerMask detectionLayer;
+    public LayerMask playerDetectionLayer;
     public List<GameObject> nearbyObjects = new List<GameObject>();
+    public GameObject deadTrigger;
 
-
-    private void Update()
+    public void Update()
     {
         CheckForNearbyObjects();
 
@@ -30,6 +32,7 @@ public class BombTile : MonoBehaviour
             {
                 // 'CanExplode' Object Explode Behavior
                 obj.SetActive(false);
+                deadTrigger.SetActive(true);
             }
 
             // Reset Behavior
@@ -38,7 +41,7 @@ public class BombTile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

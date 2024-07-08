@@ -723,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCoin: 0
+  clearCoin: 0
   savedCurrentStage: 0
 --- !u!4 &1064483733
 Transform:

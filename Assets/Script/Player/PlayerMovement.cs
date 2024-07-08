@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Components")]
+    public Animator animator;
     public Rigidbody2D targetRigidbody;
     public LayerMask obstacleLayer;
 
@@ -20,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isDragging = false;
     private bool isMoving = false;
     #endregion
+
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
 
     void Update()
     {
@@ -42,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             mouseEndPos = Input.mousePosition;
             isDragging = false;
+            animator.SetTrigger("IsAttack");
             DetectDragDirection();
         }
     }
@@ -93,7 +100,14 @@ public class PlayerMovement : MonoBehaviour
         if(direction != cantMoveDirection)
         {
             MoveObject(direction);
+            RotateTowardsDirection(direction);
         }
+    }
+
+    private void RotateTowardsDirection(Vector2 direction)
+    {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90f));
     }
 
     private void MoveObject(Vector2 direction) // Move Player Object Straight

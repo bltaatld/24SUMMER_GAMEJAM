@@ -9,17 +9,24 @@ public class CurrentGameStateManager : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(stages[ScoreManager.instance.savedCurrentStage]);
+        Instantiate(stages[ScoreManager.instance.savedCurrentStage]); // Spawn Prefab stage
     }
 
     private void Update()
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
-            // Pause Control
-            ScoreManager.instance.currentCoin = 0;
-            CurrentSceneManager.instance.loadNamedScene("MenuScene");
+            BackToMain();
         }
+    }
+
+    public void BackToMain()
+    {
+        Time.timeScale = 1.0f; //Restart Time
+
+        // Pause Behavior
+        ScoreManager.instance.currentCoin = 0;
+        CurrentSceneManager.instance.loadNamedScene("MenuScene");
     }
 
     public void RestartStage()

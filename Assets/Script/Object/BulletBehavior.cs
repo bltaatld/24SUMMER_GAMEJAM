@@ -10,10 +10,5 @@ public class BulletBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        if (collision.CompareTag("Player"))
-        {
-            CurrentSceneManager.instance.ReloadScene();
-        }
     }
 }
