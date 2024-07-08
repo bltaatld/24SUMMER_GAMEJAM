@@ -1,15 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public class Knife : MonoBehaviour
+public class Kunai : MonoBehaviour
 {
     private Rigidbody2D rigid2D;
     private CapsuleCollider2D capsuleCollider2D;
-    private float knifeSpeed = 15;
+    private float kunaiSpeed = 15;
     [HideInInspector] public bool isMoving;
 
     #region ShowKnife
-    private float duration = 0.125f;
+    private float duration = 0.15f;
     private float moveDistance = 1f; // 이동할 거리 (위쪽으로 2 유닛)
     private SpriteRenderer spriteRenderer;
     private Color startColor;
@@ -41,11 +41,11 @@ public class Knife : MonoBehaviour
         if (isMoving)
         {
             Vector2 movement = new Vector2(0, 20);
-            rigid2D.AddForce(movement * knifeSpeed);
+            rigid2D.AddForce(movement * kunaiSpeed);
         }
     }
 
-    public void ShowKnife()
+    public void ShowKunai()
     {
         StartCoroutine(FadeAndMoveCoroutine());
     }
@@ -66,14 +66,14 @@ public class Knife : MonoBehaviour
 
             yield return null;
         }
-        EndShowKnife();
+        EndShowKunai();
     }
-    public void EndShowKnife()
+    public void EndShowKunai()
     {
         spriteRenderer.color = endColor;
         transform.position = endPosition;
     }
-    public void HideKnife()
+    public void HideKunai()
     {
         spriteRenderer.color = startColor;
         Debug.Log("Knife Hide");

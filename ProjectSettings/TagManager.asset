@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - CanExplode
   - Wall
+  - Kunai
+  - Lock
   layers:
   - Default
   - TransparentFX
