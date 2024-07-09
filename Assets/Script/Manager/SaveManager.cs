@@ -7,9 +7,19 @@ using UnityEngine.Playables;
 [System.Serializable]
 public class GameData
 {
+    //Stage System
     public int currentCoin;
     public int clearCoin;
     public int savedCurrentStage;
+
+    //Hostage System
+    public int currentHostage;
+    public bool[] hostageSaved;
+
+    public GameData()
+    {
+        hostageSaved = new bool[4];
+    }
 }
 
 public class SaveManager : MonoBehaviour
@@ -37,11 +47,17 @@ public class SaveManager : MonoBehaviour
         Debug.Log(dataPath);
     }
 
-    public void SaveData(int clearcoin, int savedCurrentStage)
+    public void SaveData(int clearcoin, int savedCurrentStage, int currentHostage, bool[] isSaved)
     {
         GameData data = new GameData();
         data.clearCoin = clearcoin;
         data.savedCurrentStage = savedCurrentStage;
+        data.currentHostage = currentHostage;
+
+        for (int i=0; i <= 3; i++)
+        {
+            data.hostageSaved[i] = isSaved[i];
+        }
 
         string json = JsonUtility.ToJson(data, true);
 
@@ -60,6 +76,12 @@ public class SaveManager : MonoBehaviour
 
             ScoreManager.instance.clearCoin = data.clearCoin;
             ScoreManager.instance.savedCurrentStage = data.savedCurrentStage;
+            ScoreManager.instance.currentHostage = data.currentHostage;
+
+            for (int i = 0; i <= 3; i++)
+            {
+                ScoreManager.instance.isSaved[i] = data.hostageSaved[i];
+            }
 
             Debug.Log("Loaded data: clearCoin = " + data.clearCoin + ", savedCurrentStage = " + data.savedCurrentStage);
             return data;

@@ -45,4 +45,25 @@ public class CurrentGameStateManager : MonoBehaviour
         
         CurrentSceneManager.instance.ReloadScene(); // Load Next Scene
     }
+
+    public void HostageSave(string str)
+    {
+        Time.timeScale = 1.0f; //Restart Time
+        ScoreManager.instance.ActiveHostageData(ScoreManager.instance.currentHostage);
+
+        // Save Current Info
+        ScoreManager.instance.savedCurrentStage += 1;
+        ScoreManager.instance.currentHostage += 1;
+        CurrentSceneManager.instance.loadNamedScene(str); // Load Next Scene
+    }
+
+    public void NextStageString(string str)
+    {
+        Time.timeScale = 1.0f; //Restart Time
+
+        // Save Current Info
+        ScoreManager.instance.savedCurrentStage += 1;
+        ScoreManager.instance.currentHostage += 1;
+        CurrentSceneManager.instance.loadNamedScene(str); // Load Next Scene
+    }
 }

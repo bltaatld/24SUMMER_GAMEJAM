@@ -22,11 +22,11 @@ public class LockBehaviour : MonoBehaviour
     public List<GameObject> orbitingObjects = new List<GameObject>();
 
     [Header("Other")]
-    [HideInInspector] public int numberOfLocks = 6;
-
-    private float orbitRadius = 2.0f; // 원의 반지름
+    public int numberOfLocks;
     public float orbitSpeed = 30.0f; // 공전 속도 (각속도, 단위: degree/second)
-    private float[] angles; // 각도를 저장할 배열
+    public float[] angles; // 각도를 저장할 배열
+    private float orbitRadius = 2.0f; // 원의 반지름
+    private bool isUIActive;
 
     private void Start()
     {
@@ -67,9 +67,18 @@ public class LockBehaviour : MonoBehaviour
     {
         OrbitAroundCenter();
 
-        if(numberOfLocks <= 0)
+        if(numberOfLocks <= 0 && !isUIActive)
         {
-            Debug.Log("GameClear"); //Success Game Clear
+            // Find 'StageRestart' Object and Active
+            GameObject parentObject = GameObject.Find("UI_InGameMenu");
+
+            Transform parentTransform = parentObject.transform;
+            Transform childTransform = parentTransform.Find("StageClear");
+
+            childTransform.gameObject.SetActive(true);
+
+            isUIActive = false;
+            Time.timeScale = 0f; // Pause Time when UI Active
         }
     }
 
@@ -88,7 +97,15 @@ public class LockBehaviour : MonoBehaviour
             }
             else
             {
-                Debug.Log("GameOver"); //Hostage Health 0
+                // Find 'StageRestart' Object and Active
+                GameObject parentObject = GameObject.Find("UI_InGameMenu");
+
+                Transform parentTransform = parentObject.transform;
+                Transform childTransform = parentTransform.Find("StageRestart");
+
+                childTransform.gameObject.SetActive(true);
+
+                Time.timeScale = 0f; // Pause Time when UI Active
             }
             Destroy(collision.gameObject);
         }

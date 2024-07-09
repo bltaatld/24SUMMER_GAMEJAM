@@ -11,6 +11,8 @@ public class ScoreManager : MonoBehaviour
     public int currentCoin;
     public int clearCoin;
     public int savedCurrentStage;
+    public int currentHostage;
+    public bool[] isSaved;
 
     private void Awake()
     {
@@ -29,17 +31,18 @@ public class ScoreManager : MonoBehaviour
     {
         SaveManager.instance.LoadData(); // On Game Start Load Saved Data
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SaveManager.instance.SaveData(clearCoin, savedCurrentStage); // Quit or Return to Menu, Save Player Data
+            SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
         }
     }
 
     public void OnApplicationQuit()
     {
-        SaveManager.instance.SaveData(clearCoin, savedCurrentStage); // Quit or Return to Menu, Save Player Data
+        SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
     }
 
     public void ResetValue()
@@ -50,5 +53,10 @@ public class ScoreManager : MonoBehaviour
     public void SaveClearValue() // When Game Clear, Update Save Data 
     {
         clearCoin += currentCoin;
+    }
+
+    public void ActiveHostageData(int i)
+    {
+        isSaved[i] = true; //If Hostage[i] Saved, set true
     }
 }

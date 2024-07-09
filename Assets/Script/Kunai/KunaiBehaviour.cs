@@ -23,16 +23,16 @@ public class KunaiBehaviour : MonoBehaviour
     private int numberOfKnifes;
     private bool isOverUse;
     private bool isFade = true;
+    private float currentTime;
+    private float coolDown = 1f;
     #endregion
 
     // Update is called once per frame
     private void Awake()
     {
         lockBehaviour = LockRange.GetComponent<LockBehaviour>();
-        numberOfKnifes = lockBehaviour.numberOfLocks + 4;
-    }
-    private void Start()
-    {
+        numberOfKnifes = lockBehaviour.numberOfLocks + 6;
+
         for (int i = 0; i < numberOfKnifes; i++)
         {
             Vector2 knifePos = new Vector2(0, -4f);
@@ -54,8 +54,11 @@ public class KunaiBehaviour : MonoBehaviour
         }
 
     }
+
     void Update()
     {
+        currentTime += Time.deltaTime;
+
         if (index < KunaiList.Count)
         {
             if (index == 0)
@@ -68,16 +71,28 @@ public class KunaiBehaviour : MonoBehaviour
                 isFade = false;
             }
             
-            if (Input.GetMouseButtonDown(0))
+            if(currentTime >= coolDown)
             {
-                KunaiList[index].isMoving = true;
-                KunaiView();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    KunaiList[index].isMoving = true;
+                    KunaiView();
+                }
             }
         }
         else if (!isOverUse)
         {
             isOverUse = true;
-            Debug.Log("GameOver"); // No more Knife GameOver
+
+            // Find 'StageRestart' Object and Active
+            GameObject parentObject = GameObject.Find("UI_InGameMenu");
+
+            Transform parentTransform = parentObject.transform;
+            Transform childTransform = parentTransform.Find("StageRestart");
+
+            childTransform.gameObject.SetActive(true);
+
+            Time.timeScale = 0f; // Pause Time when UI Active
         }
     }
     private void KunaiView()
@@ -85,7 +100,7 @@ public class KunaiBehaviour : MonoBehaviour
         index++;
         isFade = true;
         int viewIndex = KunaiViewList.Count - index;
-        KunaiViewList[viewIndex].GetComponent<Image>().color = Color.gray;
+        KunaiViewList[viewIndex].GetComponent<Image>().color = Color.black;
         Debug.Log("Knife Drop");
     }
 }
