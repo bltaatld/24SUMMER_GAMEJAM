@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 808140c37a0d47e4c8a7af17d8467ce4
+guid: a81a8713e1c2b0845818d184c74a1b19
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -129,12 +129,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: titleopenfont_effect_0
+      name: titleopen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cccb593a0315abf478b9ed13918b8c4d
-      internalID: 983083046
+      spriteID: 4fa35f380659f2c4d9024e5a5f932bef
+      internalID: 808004832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_1
+      name: titleopen_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f9037725105a5e4d8fe588c904cbb3b
-      internalID: 518810850
+      spriteID: 82cefee81d45d6d41ad9f43e0f5b7146
+      internalID: 838943524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_2
+      name: titleopen_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1e29d2572493ab498b470f37bc4ed67
-      internalID: 1891591609
+      spriteID: 2ff474df89bb9ab41b7a61ebbc55acf1
+      internalID: -946761964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_3
+      name: titleopen_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 480
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -206,40 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5598eb34ebb826f4da84b3994e4b1e8f
-      internalID: -890986542
+      spriteID: 6fbdbfc60efdb41419eed54142747a4a
+      internalID: 1455469327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae612df6a3cd81847972e3ce74d0bb3f
-      internalID: 1245728868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: titleopenfont_effect_5
+      name: titleopen_4
       rect:
         serializedVersion: 2
         x: 640
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -248,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70dde7f44acca0d4aafb4265d445fe0f
-      internalID: 50902600
+      spriteID: 7f9ecd76e049aad4c9a8861d0922ffe5
+      internalID: 1525046185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_6
+      name: titleopen_5
       rect:
         serializedVersion: 2
-        x: 768
+        x: 800
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -269,19 +248,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf16b9bb24d86a047b1e21d0a91d101c
-      internalID: 505326092
+      spriteID: f786d1645a005944d9888d53891af509
+      internalID: -1539579137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_7
+      name: titleopen_6
       rect:
         serializedVersion: 2
-        x: 896
+        x: 960
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -290,19 +269,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c13fd3952f675ca4f88c9449a1f32732
-      internalID: 1158352495
+      spriteID: 32affb57f46be8a4892b66e3916c3840
+      internalID: -1738894807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_8
+      name: titleopen_7
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1120
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -311,40 +290,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dda7891d854ee84091014288a14fe1c
-      internalID: 1203545136
+      spriteID: 43bc6b96d0dc14b4092d51169195ad7d
+      internalID: 410882392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_9
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2015017ab2dcae941afee1fed5d875d9
-      internalID: -977075983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: titleopenfont_effect_10
+      name: titleopen_8
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -353,19 +311,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71bf06700da3a4f448e9d52e522e07fa
-      internalID: 1500578138
+      spriteID: 52acc89125736c649af127228683f777
+      internalID: 136049358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_11
+      name: titleopen_9
       rect:
         serializedVersion: 2
-        x: 1408
+        x: 1440
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -374,19 +332,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07acca21b10cdb1418f472284dfad106
-      internalID: -909739262
+      spriteID: c3161a19abf1ea24ab05f041bfedfc27
+      internalID: 372544847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_12
+      name: titleopen_10
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1600
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -395,19 +353,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feefaed96eec9c844a9819e9f22b332c
-      internalID: 733007310
+      spriteID: e880c27e69bedfb44b0d83dc9e6d378f
+      internalID: -1475894675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_13
+      name: titleopen_11
       rect:
         serializedVersion: 2
-        x: 1664
+        x: 1760
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -416,19 +374,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2717568d000889c4bbff8a5a8299dd18
-      internalID: -981138931
+      spriteID: 039d174445a2a8540827e9287c31bce2
+      internalID: 430618499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: titleopenfont_effect_14
+      name: titleopen_12
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1920
         y: 0
-        width: 128
+        width: 160
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -437,8 +395,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ed6cfe13d32675419f2a4c21bef2a50
-      internalID: -477732091
+      spriteID: 16866ada4edfe634ba3098a956054be1
+      internalID: 1197195299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleopen_13
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 0
+        width: 160
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c912773ab91c647afe5a03c0e86ab1
+      internalID: -590442955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleopen_14
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 160
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9750fccee036c4b9820fac45484b28
+      internalID: -1849128090
       vertices: []
       indices: 
       edges: []
@@ -454,21 +454,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      titleopenfont_effect_12: 733007310
-      titleopenfont_effect_13: -981138931
-      titleopenfont_effect_5: 50902600
-      titleopenfont_effect_8: 1203545136
-      titleopenfont_effect_10: 1500578138
-      titleopenfont_effect_4: 1245728868
-      titleopenfont_effect_9: -977075983
-      titleopenfont_effect_14: -477732091
-      titleopenfont_effect_1: 518810850
-      titleopenfont_effect_0: 983083046
-      titleopenfont_effect_6: 505326092
-      titleopenfont_effect_3: -890986542
-      titleopenfont_effect_2: 1891591609
-      titleopenfont_effect_11: -909739262
-      titleopenfont_effect_7: 1158352495
+      titleopen_4: 1525046185
+      titleopen_1: 838943524
+      titleopen_5: -1539579137
+      titleopen_0: 808004832
+      titleopen_14: -1849128090
+      titleopen_3: 1455469327
+      titleopen_8: 136049358
+      titleopen_7: 410882392
+      titleopen_11: 430618499
+      titleopen_6: -1738894807
+      titleopen_13: -590442955
+      titleopen_10: -1475894675
+      titleopen_2: -946761964
+      titleopen_12: 1197195299
+      titleopen_9: 372544847
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
