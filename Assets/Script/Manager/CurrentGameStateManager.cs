@@ -26,6 +26,7 @@ public class CurrentGameStateManager : MonoBehaviour
 
         // Pause Behavior
         ScoreManager.instance.currentCoin = 0;
+        ScoreManager.instance.SaveClearValue();
         CurrentSceneManager.instance.loadNamedScene("MenuScene");
     }
 

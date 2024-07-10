@@ -4,6 +4,7 @@ using UnityEngine;
 public class LockBehaviour : MonoBehaviour
 {
     public static LockBehaviour lockBehaviour;
+    public HostageManager hostageManager;
 
     private void Awake()
     {

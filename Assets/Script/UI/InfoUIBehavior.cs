@@ -6,6 +6,8 @@ using UnityEngine;
 public class InfoUIBehavior : MonoBehaviour
 {
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI killText;
+    public TextMeshProUGUI hostageText;
     public GameObject sceneManager;
 
     private void Start()
@@ -15,6 +17,7 @@ public class InfoUIBehavior : MonoBehaviour
 
     private void Update()
     {
+        killText.text = ScoreManager.instance.currentKill.ToString();
         coinText.text = ScoreManager.instance.clearCoin.ToString();
     }
 

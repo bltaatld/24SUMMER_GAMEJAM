@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.197
+    m_Value: 0.07
 --- !u!114 &-4862257252676269051
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -31,7 +31,7 @@ MonoBehaviour:
   active: 1
   distance:
     m_OverrideState: 1
-    m_Value: 0.364
+    m_Value: 0.437
   cropToFit:
     m_OverrideState: 1
     m_Value: 1
@@ -72,6 +72,7 @@ MonoBehaviour:
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+    dimension: 1
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0

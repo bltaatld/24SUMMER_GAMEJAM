@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
     public float stopThreshold = 0.1f;
     public float raycastDistance = 1f;
     public Vector2 cantMoveDirection;
+    public bool isMoving = false;
 
     #region PrivateValue
     private Vector3 mouseStartPos;
     private Vector3 mouseEndPos;
     private bool isDragging = false;
-    private bool isMoving = false;
     #endregion
 
     private void Start()
@@ -38,18 +38,21 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (!isMoving)
         {
-            mouseStartPos = Input.mousePosition;
-            isDragging = true;
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                mouseStartPos = Input.mousePosition;
+                isDragging = true;
+            }
 
-        if (Input.GetMouseButtonUp(0) && isDragging)
-        {
-            mouseEndPos = Input.mousePosition;
-            isDragging = false;
-            animator.SetTrigger("IsAttack");
-            DetectDragDirection();
+            if (Input.GetMouseButtonUp(0) && isDragging)
+            {
+                mouseEndPos = Input.mousePosition;
+                isDragging = false;
+                animator.SetTrigger("IsAttack");
+                DetectDragDirection();
+            }
         }
     }
 
@@ -119,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log(direction);
                 targetRigidbody.velocity = Vector2.zero; //normalize
                 targetRigidbody.AddForce(direction.normalized * moveForce, ForceMode2D.Impulse);
-                isMoving = false;
+                isMoving = true;
             }
         }
     }

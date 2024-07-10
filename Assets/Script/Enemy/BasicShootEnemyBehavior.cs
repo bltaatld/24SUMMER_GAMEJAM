@@ -8,8 +8,9 @@ public class BasicShootEnemyBehavior : MonoBehaviour
     private Transform playerTransform;
     public Transform aimTarget;
     public Transform shootPoint;
-    public GameObject aimTargetSprite;
+    public DrawLineToPlayer aimLine;
     public GameObject projectliePrefab;
+    private GameObject aimTargetSprite;
 
     [Header("Rotation Settings")]
     public float shootInterval = 1.0f;
@@ -20,6 +21,7 @@ public class BasicShootEnemyBehavior : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.Find("Player").transform;
+        aimTargetSprite = aimLine.lineObject;
         StartCoroutine(ShootRoutine());
     }
 

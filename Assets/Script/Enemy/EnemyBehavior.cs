@@ -10,6 +10,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            ScoreManager.instance.currentKill += 1;
             animator.SetTrigger("IsDead");
         }
     }

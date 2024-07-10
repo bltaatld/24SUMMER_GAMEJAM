@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
     public int clearCoin;
     public int savedCurrentStage;
     public int currentHostage;
+    public int currentKill;
     public bool[] isSaved;
 
     private void Awake()
@@ -36,13 +37,13 @@ public class ScoreManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
+            SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentKill, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
         }
     }
 
     public void OnApplicationQuit()
     {
-        SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
+        SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentKill, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
     }
 
     public void ResetValue()

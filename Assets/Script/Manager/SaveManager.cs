@@ -14,6 +14,7 @@ public class GameData
 
     //Hostage System
     public int currentHostage;
+    public int currentKill;
     public bool[] hostageSaved;
 
     public GameData()
@@ -47,12 +48,13 @@ public class SaveManager : MonoBehaviour
         Debug.Log(dataPath);
     }
 
-    public void SaveData(int clearcoin, int savedCurrentStage, int currentHostage, bool[] isSaved)
+    public void SaveData(int clearcoin, int savedCurrentStage,int currentKill, int currentHostage, bool[] isSaved)
     {
         GameData data = new GameData();
         data.clearCoin = clearcoin;
         data.savedCurrentStage = savedCurrentStage;
         data.currentHostage = currentHostage;
+        data.currentKill = currentKill;
 
         for (int i=0; i <= 3; i++)
         {
@@ -77,6 +79,7 @@ public class SaveManager : MonoBehaviour
             ScoreManager.instance.clearCoin = data.clearCoin;
             ScoreManager.instance.savedCurrentStage = data.savedCurrentStage;
             ScoreManager.instance.currentHostage = data.currentHostage;
+            ScoreManager.instance.currentKill = data.currentKill;
 
             for (int i = 0; i <= 3; i++)
             {

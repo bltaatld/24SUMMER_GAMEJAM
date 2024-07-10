@@ -9,13 +9,14 @@ public class BombTile : MonoBehaviour
     public float currentTime;
     public float detectionRadius = 5.0f;
     public bool isTouched;
-    public bool isInBombRange;
+    public bool isActive;
 
     [Header("Components")]
     public LayerMask detectionLayer;
     public LayerMask playerDetectionLayer;
     public List<GameObject> nearbyObjects = new List<GameObject>();
     public GameObject deadTrigger;
+    public Animator animator;
 
     public void Update()
     {
@@ -28,16 +29,22 @@ public class BombTile : MonoBehaviour
 
         if (currentTime >= cooltime)
         {
-            foreach (GameObject obj in nearbyObjects)
+            if (!isActive)
             {
-                // 'CanExplode' Object Explode Behavior
-                obj.SetActive(false);
-                deadTrigger.SetActive(true);
-            }
+                foreach (GameObject obj in nearbyObjects)
+                {
+                    // 'CanExplode' Object Explode Behavior
+                    obj.SetActive(false);
+                }
 
-            // Reset Behavior
-            currentTime = 0;
-            isTouched = false;
+                deadTrigger.SetActive(true);
+                animator.SetTrigger("IsActive");
+
+                // Reset Behavior
+                currentTime = 0;
+                isTouched = false;
+                isActive = true;
+            }
         }
     }
 
