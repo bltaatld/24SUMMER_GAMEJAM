@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class KunaiBehaviour : MonoBehaviour
 {
+    public static KunaiBehaviour kunaiBehaviour;
     [Header("UI Object")]
     [SerializeField] private GameObject KunaiViewHolder;
     [SerializeField] private GameObject KunaiViewPrefab;
@@ -12,16 +13,16 @@ public class KunaiBehaviour : MonoBehaviour
     [SerializeField] private GameObject KunaiHolder;
     [SerializeField] private GameObject KunaiPrefab;
     [SerializeField] private GameObject LockRange;
-
+    public HostageManager hostageManager;
     [Header("List")]
     [SerializeField] List<GameObject> KunaiViewList;
     [SerializeField] List<Kunai> KunaiList;
 
+    [HideInInspector] public int numberOfKnifes;
+    [HideInInspector] public bool isAllUse;
     #region PrivateValue
     private LockBehaviour lockBehaviour;
     private int index = 0;
-    private int numberOfKnifes;
-    private bool isOverUse;
     private bool isFade = true;
     private float currentTime;
     private float coolDown = 1f;
@@ -30,9 +31,9 @@ public class KunaiBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
+        hostageManager.UpdateHostageInfo();
         lockBehaviour = LockRange.GetComponent<LockBehaviour>();
-        numberOfKnifes = lockBehaviour.numberOfLocks + 6;
-
+        kunaiBehaviour = this;
         for (int i = 0; i < numberOfKnifes; i++)
         {
             Vector2 knifePos = new Vector2(0, -4f);
@@ -70,8 +71,8 @@ public class KunaiBehaviour : MonoBehaviour
                 KunaiList[index].ShowKunai();
                 isFade = false;
             }
-            
-            if(currentTime >= coolDown)
+
+            if (currentTime >= coolDown)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -80,23 +81,14 @@ public class KunaiBehaviour : MonoBehaviour
                 }
             }
         }
-        else if (!isOverUse)
+        else
         {
-            isOverUse = true;
-
-            // Find 'StageRestart' Object and Active
-            GameObject parentObject = GameObject.Find("UI_InGameMenu");
-
-            Transform parentTransform = parentObject.transform;
-            Transform childTransform = parentTransform.Find("StageRestart");
-
-            childTransform.gameObject.SetActive(true);
-
-            Time.timeScale = 0f; // Pause Time when UI Active
+            isAllUse = true;
         }
     }
     private void KunaiView()
     {
+        KunaiList[index].isUse = false;
         index++;
         isFade = true;
         int viewIndex = KunaiViewList.Count - index;

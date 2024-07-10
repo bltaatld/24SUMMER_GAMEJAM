@@ -4,13 +4,15 @@ using static LockBehaviour;
 public class Lock : MonoBehaviour
 {
     public Animator animator;
+
     private GameObject rotateObject;
-    private GameObject kunaiObject;
+    private BoxCollider2D boxCollider;
     private bool isHit;
 
     private void Start()
     {
         rotateObject = GameObject.Find("Hostage");
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -19,11 +21,12 @@ public class Lock : MonoBehaviour
 
         if (isHit)
         {
+
             // 충돌된 Lock 오브젝트를 제거
             lockBehaviour.lockObjectList.Remove(gameObject);
             lockBehaviour.orbitingObjects.Remove(gameObject);
             Destroy(gameObject);
-            Destroy(kunaiObject); // Kunai 오브젝트 삭제
+
             isHit = false;
         }
     }
@@ -32,9 +35,11 @@ public class Lock : MonoBehaviour
     {
         if (other.CompareTag("Kunai"))
         {
+            
             lockBehaviour.numberOfLocks--;
+            Destroy(this.boxCollider);
             animator.SetTrigger("IsDead");
-            kunaiObject = other.gameObject;
+            Invoke("KunaiHitAction", 0.5f);
         }
     }
 

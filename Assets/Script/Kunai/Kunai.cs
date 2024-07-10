@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Kunai : MonoBehaviour
 {
+    
     private Rigidbody2D rigid2D;
     private CapsuleCollider2D capsuleCollider2D;
     private float kunaiSpeed = 15;
     [HideInInspector] public bool isMoving;
-
+    [HideInInspector] public bool isUse;
     #region ShowKnife
     private float duration = 0.15f;
     private float moveDistance = 1f; // 이동할 거리 (위쪽으로 2 유닛)
@@ -19,10 +20,12 @@ public class Kunai : MonoBehaviour
     #endregion
     private void Awake()
     {
+        
         rigid2D = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         isMoving = false;
+        isUse = false;
     }
     void Start()
     {
@@ -77,5 +80,16 @@ public class Kunai : MonoBehaviour
     {
         spriteRenderer.color = startColor;
         Debug.Log("Knife Hide");
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Lock"))
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            isUse = true;
+        }
     }
 }

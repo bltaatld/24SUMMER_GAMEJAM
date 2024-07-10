@@ -1551,8 +1551,10 @@ MonoBehaviour:
   KunaiHolder: {fileID: 3981798}
   KunaiPrefab: {fileID: 7230690528094330906, guid: eafd32631901fb945a69d3186d857eef, type: 3}
   LockRange: {fileID: 1209142239}
+  hostageManager: {fileID: 1207710331}
   KunaiViewList: []
   KunaiList: []
+  numberOfKnifes: 0
 --- !u!1 &853353104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockBehaviour: {fileID: 1209142242}
+  kunaiBehaviour: {fileID: 800128313}
 --- !u!1 &1209142239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b1c3803f299114a8fff830d1ff7a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostageManager: {fileID: 1207710331}
   failCount: 3
   lockHolder: {fileID: 1033328051}
   lockPrefab: {fileID: 7728205274996565514, guid: d03249d0df46f8946a78e88adaeca6ee, type: 3}
@@ -2388,7 +2390,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.1
 --- !u!95 &1209142244
 Animator:
   serializedVersion: 5
