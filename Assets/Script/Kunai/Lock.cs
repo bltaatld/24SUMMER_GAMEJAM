@@ -35,7 +35,7 @@ public class Lock : MonoBehaviour
     {
         if (other.CompareTag("Kunai"))
         {
-            
+            AudioManager.instance.PlaySound(8);
             lockBehaviour.numberOfLocks--;
             Destroy(this.boxCollider);
             animator.SetTrigger("IsDead");

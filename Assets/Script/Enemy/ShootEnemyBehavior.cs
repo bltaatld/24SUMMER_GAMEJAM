@@ -23,7 +23,6 @@ public class ShootEnemyBehavior : MonoBehaviour
 
         if (hit.collider != null)
         {
-            // 방향에 따라 회전을 변경합니다.
             if (direction == Vector2.up)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 180);

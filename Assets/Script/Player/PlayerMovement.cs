@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (targetRigidbody.velocity.magnitude < stopThreshold)
             {
+                CameraShake.instance.Shakecamera(2.5f, 0.2f);
                 isMoving = false;
             }
             return;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                AudioManager.instance.PlaySound(4);
                 mouseStartPos = Input.mousePosition;
                 isDragging = true;
             }

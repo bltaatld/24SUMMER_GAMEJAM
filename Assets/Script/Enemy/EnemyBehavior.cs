@@ -11,6 +11,8 @@ public class EnemyBehavior : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             ScoreManager.instance.currentKill += 1;
+            AudioManager.instance.PlaySound(3);
+
             animator.SetTrigger("IsDead");
         }
     }

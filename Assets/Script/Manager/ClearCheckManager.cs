@@ -12,7 +12,7 @@ public class ClearCheckManager : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             objectsInCollider.Add(collision.gameObject);
-            Debug.Log("Enemy entered: " + collision.gameObject.name);
+            // Debug.Log("Enemy entered: " + collision.gameObject.name); // Debug Check Enemy In Position
         }
     }
 

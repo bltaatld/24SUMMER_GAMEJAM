@@ -22,14 +22,28 @@ public class BasicShootEnemyBehavior : MonoBehaviour
     {
         playerTransform = GameObject.Find("Player").transform;
         aimTargetSprite = aimLine.lineObject;
+
         StartCoroutine(ShootRoutine());
+    }
+
+    IEnumerator ShootRoutine()
+    {
+        while (true)
+        {
+            if (isDetected)
+            {
+                ShootProjectile();
+            }
+
+            yield return new WaitForSeconds(shootInterval);
+        }
     }
 
     void Update()
     {
         if (playerTransform != null)
         {
-            AdjustRotationBasedOnPlayerPosition();
+            RotateTowardsPlayer();
         }
     }
 
@@ -49,7 +63,7 @@ public class BasicShootEnemyBehavior : MonoBehaviour
         }
     }
 
-    void AdjustRotationBasedOnPlayerPosition()
+    private void RotateTowardsPlayer()
     {
         Vector2 directionToPlayer = playerTransform.position - transform.position;
 
@@ -68,20 +82,10 @@ public class BasicShootEnemyBehavior : MonoBehaviour
         }
     }
 
-    IEnumerator ShootRoutine()
+    private void ShootProjectile()
     {
-        while (true)
-        {
-            if (isDetected)
-            {
-                ShootProjectile();
-            }
-            yield return new WaitForSeconds(shootInterval);
-        }
-    }
+        AudioManager.instance.PlaySound(6);
 
-    void ShootProjectile()
-    {
         if (projectliePrefab != null && shootPoint != null)
         {
             GameObject projectile = Instantiate(projectliePrefab, shootPoint.position, shootPoint.rotation);
@@ -89,7 +93,7 @@ public class BasicShootEnemyBehavior : MonoBehaviour
 
             if (rb != null)
             {
-                rb.velocity = currentDirection * 25f;
+                rb.velocity = currentDirection * 12.5f;
             }
 
             isDetected = false;

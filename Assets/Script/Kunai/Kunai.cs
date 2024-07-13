@@ -9,6 +9,7 @@ public class Kunai : MonoBehaviour
     private float kunaiSpeed = 15;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool isUse;
+
     #region ShowKnife
     private float duration = 0.15f;
     private float moveDistance = 1f; // 이동할 거리 (위쪽으로 2 유닛)
@@ -18,6 +19,7 @@ public class Kunai : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 endPosition;
     #endregion
+
     private void Awake()
     {
         

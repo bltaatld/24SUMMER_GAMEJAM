@@ -23,6 +23,7 @@ public class LockBehaviour : MonoBehaviour
     public List<GameObject> orbitingObjects = new List<GameObject>();
 
     [Header("Other")]
+    public Animator animator;
     public int numberOfLocks; // 자물쇠 개수
     public float orbitSpeed; // 공전 속도 (각속도, 단위: degree/second)
     public float[] angles; // 각도를 저장할 배열
@@ -31,6 +32,7 @@ public class LockBehaviour : MonoBehaviour
 
     private void Start()
     {
+        animator.SetInteger("HostageID", ScoreManager.instance.currentHostage);
         InitializeLocks();
     }
     private void InitializeLocks()
@@ -107,6 +109,8 @@ public class LockBehaviour : MonoBehaviour
         {
             if (failCount != 0)
             {
+                AudioManager.instance.PlaySound(7);
+                animator.SetTrigger("IsDamaged");
                 if (kunaiBehaviour.isAllUse)
                     StageReStart();
                 failCount--;

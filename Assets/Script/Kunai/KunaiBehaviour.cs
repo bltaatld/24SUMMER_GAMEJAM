@@ -76,6 +76,7 @@ public class KunaiBehaviour : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    AudioManager.instance.PlaySound(9);
                     KunaiList[index].isMoving = true;
                     KunaiView();
                 }

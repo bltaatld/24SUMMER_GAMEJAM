@@ -31,6 +31,8 @@ public class BombTile : MonoBehaviour
         {
             if (!isActive)
             {
+                AudioManager.instance.PlaySound(0);
+
                 foreach (GameObject obj in nearbyObjects)
                 {
                     // 'CanExplode' Object Explode Behavior
@@ -53,6 +55,10 @@ public class BombTile : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isTouched = true;
+            if (!isActive)
+            {
+                AudioManager.instance.PlaySound(1);
+            }
         }
     }
 

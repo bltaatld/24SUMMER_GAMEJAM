@@ -51,6 +51,16 @@ public class ScoreManager : MonoBehaviour
         currentCoin = 0;
     }
 
+    public void ResetAllValue(bool[] resetData) 
+    {
+        currentCoin = 0;
+        clearCoin = 0;
+        savedCurrentStage = 0;
+        currentHostage = 0;
+        currentKill = 0;
+        isSaved = resetData;
+    }
+
     public void SaveClearValue() // When Game Clear, Update Save Data 
     {
         clearCoin += currentCoin;

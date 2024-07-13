@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class DrawLineToPlayer : MonoBehaviour
 {
-    public GameObject player; // 플레이어 GameObject
-    public GameObject linePrefab; // 라인 프리팹
-    public GameObject lineObject; // 생성된 라인 프리팹
-    public Transform startTransform; // 시작점 트랜스폼
-    public Transform endTransform; // 끝점 트랜스폼
-    private LineRenderer lineRenderer; // 라인 렌더러 컴포넌트
+    public GameObject player;
+    public GameObject linePrefab;
+    public GameObject lineObject;
+    public Transform startTransform;
+    public Transform endTransform;
+    private LineRenderer lineRenderer;
 
     void Start()
     {
-        // 라인 프리팹을 인스턴스화합니다.
         lineObject = Instantiate(linePrefab);
         lineRenderer = lineObject.GetComponent<LineRenderer>();
 
@@ -21,7 +20,7 @@ public class DrawLineToPlayer : MonoBehaviour
 
         if (player != null)
         {
-            // 플레이어 오브젝트의 자식 오브젝트들을 찾습니다.
+            // Find 'Player' object in 'Player Basic' object
             endTransform = player.transform.Find("Player");
 
             if (endTransform == null)
@@ -37,11 +36,11 @@ public class DrawLineToPlayer : MonoBehaviour
             return;
         }
 
-        // 라인의 시작점과 끝점을 설정합니다.
+        // set line start point and end point
         if (startTransform != null && endTransform != null)
         {
-            lineRenderer.SetPosition(0, startTransform.position); // 시작점
-            lineRenderer.SetPosition(1, endTransform.position); // 끝점
+            lineRenderer.SetPosition(0, startTransform.position); // start point
+            lineRenderer.SetPosition(1, endTransform.position); // end point
         }
         else
         {
@@ -51,12 +50,18 @@ public class DrawLineToPlayer : MonoBehaviour
 
     void Update()
     {
-        // 예시로 두 트랜스폼의 위치를 매 프레임마다 업데이트합니다.
-        // 실제로는 필요에 따라 위치가 변경될 때 업데이트하는 로직을 구현해야 합니다.
         if (startTransform != null && endTransform != null)
         {
-            lineRenderer.SetPosition(0, startTransform.position); // 시작점
-            lineRenderer.SetPosition(1, endTransform.position); // 끝점
+            lineRenderer.SetPosition(0, startTransform.position); // start point
+            lineRenderer.SetPosition(1, endTransform.position); // end point
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (lineObject)
+        {
+            lineObject.SetActive(false);
         }
     }
 }

@@ -19,6 +19,7 @@ public class InfoUIBehavior : MonoBehaviour
     {
         killText.text = ScoreManager.instance.currentKill.ToString();
         coinText.text = ScoreManager.instance.clearCoin.ToString();
+        hostageText.text = ScoreManager.instance.currentHostage.ToString();
     }
 
     public void GameStart()

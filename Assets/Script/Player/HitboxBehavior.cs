@@ -43,10 +43,12 @@ public class HitboxBehavior : MonoBehaviour
         if (collision.CompareTag("DeadTile"))
         {
             isHit = true;
-            
+
+            AudioManager.instance.PlaySound(5);
             Debug.Log("Player Dead");
             animator.SetTrigger("IsDead");
 
+            hitboxTarget.GetComponent<PlayerMovement>().isMoving = false;
             hitboxTarget.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
