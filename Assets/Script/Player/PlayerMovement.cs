@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float raycastDistance = 1f;
     public Vector2 cantMoveDirection;
     public bool isMoving = false;
+    public bool canMoving = false;
 
     #region PrivateValue
     private Vector3 mouseStartPos;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isMoving) // Check isMoving
+        if (isMoving && canMoving) // Check isMoving
         {
             if (targetRigidbody.velocity.magnitude < stopThreshold)
             {
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (!isMoving)
+        if (!isMoving && canMoving)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -121,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (CheckWallCollide(direction) == true)
             {
-                Debug.Log(direction);
+                // Debug.Log(direction); //Debug Collide Direction
                 targetRigidbody.velocity = Vector2.zero; //normalize
                 targetRigidbody.AddForce(direction.normalized * moveForce, ForceMode2D.Impulse);
                 isMoving = true;

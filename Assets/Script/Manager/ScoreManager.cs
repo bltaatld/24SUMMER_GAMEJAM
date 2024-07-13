@@ -64,6 +64,7 @@ public class ScoreManager : MonoBehaviour
     public void SaveClearValue() // When Game Clear, Update Save Data 
     {
         clearCoin += currentCoin;
+        SaveManager.instance.SaveData(clearCoin, savedCurrentStage, currentKill, currentHostage, isSaved); // Quit or Return to Menu, Save Player Data
     }
 
     public void ActiveHostageData(int i)
