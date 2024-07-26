@@ -7,9 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioSource audioSource;
-    public AudioClip[] soundEffect;
-    public float currentSFX;
-    private bool isClick;
+    public AudioClip[] soundEffects;
+    private bool isMute;
 
     private void Awake()
     {
@@ -28,7 +27,7 @@ public class AudioManager : MonoBehaviour
     {
         if (audioSource.enabled)
         {
-            audioSource.PlayOneShot(soundEffect[i]);
+            audioSource.PlayOneShot(soundEffects[i]);
         }
     }
 
@@ -43,9 +42,9 @@ public class AudioManager : MonoBehaviour
 
     public void OnToggleValueChanged()
     {
-        if (!isClick)
+        if (!isMute)
         {
-            isClick = true;
+            isMute = true;
 
             if (audioSource.enabled)
             {
@@ -57,6 +56,6 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        isClick = false;
+        isMute = false;
     }
 }

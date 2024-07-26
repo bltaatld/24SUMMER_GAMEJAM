@@ -25,12 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1.0f; // When Player Active, Game Time is 1.0f
     }
 
     void Update()
     {
-        if (isMoving && canMoving) // Check isMoving
+        if (isMoving && canMoving) // Check Moving State of Player
         {
             if (targetRigidbody.velocity.magnitude < stopThreshold)
             {
@@ -40,11 +40,12 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (!isMoving && canMoving)
+        if (!isMoving && canMoving) // Check Moving State of Player
         {
             if (Input.GetMouseButtonDown(0))
             {
                 AudioManager.instance.PlaySound(4);
+
                 mouseStartPos = Input.mousePosition;
                 isDragging = true;
             }
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 mouseEndPos = Input.mousePosition;
                 isDragging = false;
+
                 animator.SetTrigger("IsAttack");
                 DetectDragDirection();
             }
